@@ -601,14 +601,13 @@ if [ $android_version_major -ge "10" ]; then
     # out/soong/.intermediates/bionic/lib*/lib*/android_arm<COMPILER>_core_shared/lib*.so
     # but that is not elegant.
     # So we have to build apex (make com.android.runtime.release) and then:
-    art_path=%{android_root}/out/soong/.intermediates/art/build
-    apex_path=apex/com.android.runtime.release/android_common_com.android.runtime.release/image.apex
+    apex_path=%{android_root}/out/target/product/$DEVICE/system/apex/com.android.runtime.release
     cp -a \
-        $art_path/$apex_path/lib/bionic/lib{dl,c,m}.so \
+        $apex_path/lib/bionic/lib{dl,c,m}.so \
         $RPM_BUILD_ROOT%{_libexecdir}/droid-hybris/system/lib
 %if 0%{?droid_target_aarch64:1}
     cp -a \
-        $art_path/$apex_path/lib64/bionic/lib{dl,c,m}.so \
+        $apex_path/lib64/bionic/lib{dl,c,m}.so \
         $RPM_BUILD_ROOT%{_libexecdir}/droid-hybris/system/lib64
 %endif
 fi
