@@ -278,7 +278,7 @@ if [ "$BUILDMW" = "1" ]; then
     else
         buildmw -u "https://github.com/mer-hybris/libhybris" || die
         buildmw -u "https://github.com/sailfishos/libglibutil.git" || die
-        buildmw -u "https://github.com/mer-hybris/libgbinder" || die
+        buildmw -u "https://github.com/SailfishOS-MI-A2/libgbinder" || die
 
         if [ $android_version_major -ge 8 ]; then
             buildmw -u "https://github.com/mer-hybris/libgbinder-radio" || die
